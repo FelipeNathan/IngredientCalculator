@@ -1,4 +1,4 @@
-package com.ingredientcalculator
+package com.ingredientcalculator.formatter
 
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,6 +12,7 @@ class DecimalWatcher(
 ) : TextWatcher {
 
     private val decimal = "".padEnd(scale, '0')
+
     override fun beforeTextChanged(
         charSequence: CharSequence?,
         start: Int,

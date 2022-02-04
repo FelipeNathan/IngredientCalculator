@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_scale"
+        android:enabled="true"
+        android:icon="@drawable/ic_scale"
+        android:title="@string/peso"/>
+    <item
+        android:id="@+id/page_liquid"
+        android:enabled="true"
+        android:icon="@drawable/ic_milk"
+        android:title="@string/liquido"/>
+</menu>
