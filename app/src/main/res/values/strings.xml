@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IngredientCalculator</string>
+    <string name="peso_do_produto">Peso do produto:</string>
+    <string name="pre_o_do_produto">Preço do produto:</string>
+    <string name="resultado">Resultado</string>
+    <string name="kg">KG</string>
+    <string name="peso_utilizado">Peso utilizado</string>
+    <string name="r">R$</string>
+</resources>
