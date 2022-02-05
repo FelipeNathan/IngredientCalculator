@@ -8,6 +8,6 @@ fun Editable?.valueOrZero(): BigDecimal {
     return try {
         BigDecimal(value)
     } catch (ex: NumberFormatException) {
-        BigDecimal("0$value")
+        BigDecimal("0")
     }
 }
