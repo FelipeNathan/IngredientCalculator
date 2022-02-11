@@ -6,15 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import com.ingredientcalculator.R
-import com.ingredientcalculator.databinding.LiquidFragmentBinding
+import com.ingredientcalculator.databinding.FragmentLiquidBinding
 import com.ingredientcalculator.formatter.DecimalWatcher
 import com.ingredientcalculator.formatter.valueOrZero
 import com.ingredientcalculator.service.CalculatorService
 
-class LiquidFragment : Fragment(R.layout.liquid_fragment) {
+class LiquidFragment : Fragment() {
 
-    lateinit var binding: LiquidFragmentBinding
+    lateinit var binding: FragmentLiquidBinding
     private val calculator = CalculatorService()
 
     override fun onCreateView(
@@ -22,7 +21,7 @@ class LiquidFragment : Fragment(R.layout.liquid_fragment) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = LiquidFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentLiquidBinding.inflate(inflater, container, false)
 
         with(binding.precoDoProdutoInput) {
             addTextChangedListener(DecimalWatcher.build2Decimal(this))
