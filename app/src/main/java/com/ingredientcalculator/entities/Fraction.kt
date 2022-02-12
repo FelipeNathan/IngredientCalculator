@@ -35,13 +35,12 @@ class Fraction(
     }
 
     enum class Representation(val amount: Double, @DrawableRes val resource: Int) {
-        EMPTY(0.0, R.drawable.ic_milk),
-        ONE_EIGHTH(0.125, R.drawable.ic_milk_1_4),
-        ONE_QUARTER(0.25, R.drawable.ic_milk_1_4),
-        ONE_THIRD(0.33, R.drawable.ic_milk_1_3),
-        HALF(0.5, R.drawable.ic_milk_1_2),
-        TWO_THIRDS(0.66, R.drawable.ic_milk_2_3),
-        THREE_QUARTERS(0.75, R.drawable.ic_milk_3_4),
-        FULL(1.0, R.drawable.ic_milk_full);
+        EMPTY(0.0, R.drawable.ic_cup_0),
+        ONE_QUARTER(0.25, R.drawable.ic_cup_1_4),
+        ONE_THIRD(0.33, R.drawable.ic_cup_1_3),
+        HALF(0.5, R.drawable.ic_cup_1_2),
+        TWO_THIRDS(0.66, R.drawable.ic_cup_2_3),
+        THREE_QUARTERS(0.75, R.drawable.ic_cup_3_4),
+        FULL(1.0, R.drawable.ic_cup_1);
     }
 }

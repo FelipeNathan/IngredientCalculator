@@ -35,7 +35,7 @@ class ConvertFragment : Fragment() {
 
         binding.button.setOnClickListener {
 
-            val ingredientSize = 1.5 / 5
+            val ingredientSize = 1.5 * 2.5
             var fullBottleSize = floor(ingredientSize)
             val decimal = ingredientSize - fullBottleSize;
             val fraction = convertService.calculate(decimal)
