@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ingredientcalculator.databinding.FragmentConvertBinding
+import com.ingredientcalculator.entities.Fraction
 import com.ingredientcalculator.service.ConvertService
-import com.ingredientcalculator.service.ConvertService.State
 import java.math.BigDecimal
 import java.math.RoundingMode
 import kotlin.math.floor
@@ -35,35 +35,35 @@ class ConvertFragment : Fragment() {
 
         binding.button.setOnClickListener {
 
-            val ingredientSize = 1.5 / 4
+            val ingredientSize = 1.5 / 5
             var fullBottleSize = floor(ingredientSize)
-            val fraction = ingredientSize - fullBottleSize;
-            val state = convertService.calculate(fraction)
+            val decimal = ingredientSize - fullBottleSize;
+            val fraction = convertService.calculate(decimal)
 
             binding.generatedNumber.text = BigDecimal(ingredientSize)
                 .setScale(3, RoundingMode.HALF_EVEN)
                 .toPlainString()
 
-            if (state == State.FULL) {
+            if (fraction.representation == Fraction.Representation.FULL) {
                 fullBottleSize++
             }
 
             val hasFullBottle = (fullBottleSize >= 1)
 
             toggleFullBottle(fullBottleSize.toInt())
-            toggleFractionBottle(hasFullBottle, state)
+            toggleFractionBottle(hasFullBottle, fraction)
         }
     }
 
-    private fun toggleFractionBottle(hasFullBottle: Boolean, state: State) {
-        if (state == State.FULL || (state == State.EMPTY && hasFullBottle)) {
+    private fun toggleFractionBottle(hasFullBottle: Boolean, fraction: Fraction) {
+        if (fraction.representation == Fraction.Representation.FULL || (fraction.representation == Fraction.Representation.EMPTY && hasFullBottle)) {
             binding.imgFraction.visibility = View.GONE
             binding.imgFractionText.visibility = View.GONE
         } else {
             binding.imgFraction.visibility = View.VISIBLE
             binding.imgFractionText.visibility = View.VISIBLE
-            binding.imgFraction.setBackgroundResource(state.resource)
-            binding.imgFractionText.text = state.text
+            binding.imgFraction.setBackgroundResource(fraction.representation.resource)
+            binding.imgFractionText.text = fraction.rational.toString()
         }
     }
 
